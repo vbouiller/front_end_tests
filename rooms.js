@@ -10,6 +10,19 @@ var app = new Vue({
 	mounted() {
 			axios.get(url_api)
 				 .then(response => {this.roomArray = response.data});
-	}	
+	},
+	methods: {
+        switchLight(room) {
+            this.selected = room;
+            axios.post(switch_light_url, {roomId: room.id})
+                .then(response => {this.rooms = response.data});
+            },
+        switchRinger(room) {
+            this.selectedRoom = room;
+            axios.post(switch_ringer_url, {roomId: room.id})
+                .then(response => {this.rooms = response.data});
+        },
+
+    }	
 	
 });
