@@ -1,4 +1,4 @@
-url_api = "http://localhost:8080/api/rooms";//"https://pure-basin-20770.herokuapp.com/api/rooms";
+url_api = "https://pure-basin-20770.herokuapp.com/api/rooms";
 switch_light_url="/switch/light";
 switch_ringer_url="/switch/ringer";
 var app = new Vue({
