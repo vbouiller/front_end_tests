@@ -1,6 +1,6 @@
-url_api = "https://pure-basin-20770.herokuapp.com/api/rooms";
-switch_light_url=url_api+"/switch/light";
-switch_ringer_url=url_api+"/switch/ringer";
+url_api = "http://localhost:8080/api/rooms";//"https://pure-basin-20770.herokuapp.com/api/rooms";
+switch_light_url="/switch/light";
+switch_ringer_url="/switch/ringer";
 var app = new Vue({
   el: '#app',
   data: {
@@ -14,13 +14,13 @@ var app = new Vue({
 	methods: {
         switchLight(room) {
             this.selected = room;
-            axios.post(switch_light_url, {roomId: room.id})
-                .then(response => {this.rooms = response.data});
+            axios.post(url_api + "/" + room.id + switch_light_url)
+                .then(response => {this.roomArray = response.data});
             },
         switchRinger(room) {
             this.selectedRoom = room;
-            axios.post(switch_ringer_url, {roomId: room.id})
-                .then(response => {this.rooms = response.data});
+            axios.post(url_api + "/" + room.id + switch_ringer_url)
+                .then(response => {this.roomArray = response.data});
         },
 
     }	
